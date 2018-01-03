@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_test_2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.decrypto.dostana.test_2"
+    android:background="#e1f5fe">
+
+
+    <com.example.decrypto.dostana.RoundedImageView
+        android:adjustViewBounds="true"
+        android:id="@+id/chat_img"
+        android:background="@drawable/default_user1"
+        android:onClick="click_profile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp" />
+
+    <Button
+        android:id="@+id/edit"
+        android:background="@drawable/edit_profile"
+        android:onClick="show_edit_options"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="87dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/chat_img"
+        android:layout_alignEnd="@+id/chat_img" />
+
+    <TextView
+        android:text="Sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/chat_img"
+        android:layout_toEndOf="@+id/chat_img"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/word1"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary" />
+
+</RelativeLayout>

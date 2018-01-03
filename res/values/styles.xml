@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">#000000</item>
+        <item name="android:colorButtonNormal">@drawable/button_selector</item>
+    </style>
+
+
+    <!-- Messaging activity  theme. -->
+    <style name="MessageTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">#000000</item>
+        <item name="android:colorButtonNormal">@drawable/button_selector</item>
+    </style>
+
+
+    <!-- Custom application theme. -->
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:colorButtonNormal">@drawable/button_selector</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+
+    <style name="DialogStyle">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowBackground">@color/dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:colorButtonNormal">@drawable/button_selector</item>
+        <item name="android:radius">50dp</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+
+    </style>
+
+</resources>

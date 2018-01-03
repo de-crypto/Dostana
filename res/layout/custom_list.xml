@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/custom_linear">
+
+    <com.example.decrypto.dostana.RoundedImageView
+        android:adjustViewBounds="true"
+        android:id="@+id/chat_img"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/default_user1"
+        android:onClick="click_profile"
+        android:layout_marginBottom="10dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+
+
+    <TextView
+        android:text="User "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_name"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

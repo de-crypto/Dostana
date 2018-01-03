@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="About Us"
+        android:id="@+id/aboutus" />
+    <item android:title="Settings"
+        android:id="@+id/setting" />
+    <item android:title="Log Out"
+        android:id="@+id/logout" />
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/chat_1"
+        android:title="@string/action_favorite"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_test_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.decrypto.dostana.Test_1"
+    android:background="#e1f5fe">
+
+    <Button
+        android:text="Sign Up"
+        android:id="@+id/signup"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="400dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:layout_height="30dp"
+        android:backgroundTint="#53c4ea"
+        android:onClick="sign_up" />
+
+    <TextView
+        android:text="New User ? please"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/signup"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="88dp"
+        android:id="@+id/name"
+        android:hint="Username"
+        android:textSize="14sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="24dp"
+        android:id="@+id/password"
+        android:hint="password"
+        android:textSize="14sp"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+    <Button
+        android:id="@+id/button2"
+        android:background="@drawable/eye_pass"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/password"
+        android:layout_toRightOf="@+id/password"
+        android:layout_toEndOf="@+id/password"
+        android:onClick="pass_visible" />
+
+    <Button
+        android:text="Log In"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mybutton"
+        android:background="#53c2ea"
+        android:layout_marginTop="26dp"
+        android:textSize="12sp"
+        android:textColorLink="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/wrong"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wrong"
+        android:textColorLink="@android:color/holo_red_dark"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="The username or password you entered is incorrect"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="51dp"
+        android:layout_marginStart="51dp" />
+</RelativeLayout>
