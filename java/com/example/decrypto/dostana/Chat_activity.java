@@ -2,16 +2,23 @@ package com.example.decrypto.dostana;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +27,7 @@ public class Chat_activity extends AppCompatActivity {
     DBhandler mydatabase;
     List<RowItem> rowItems;
     String userdata;
+    ListView mylist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,37 +44,52 @@ public class Chat_activity extends AppCompatActivity {
         setTitle("Select Contact");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-         String[] uname = mydatabase.get_username();
-        String[] image_arr = mydatabase.get_imagepath(uname);
+        mylist = (ListView) findViewById(R.id.mylist);
 
-        rowItems = new ArrayList<RowItem>();
-        for (int i = 0; i < uname.length; i++) {
-            if(uname[i].compareTo(userdata)!=0){
-            RowItem item = new RowItem(image_arr[i], uname[i]);
-            rowItems.add(item);
+        new Task().execute(userdata);
+    }
+
+    //Creating AsyncTask for Creating Listview
+    private class Task extends AsyncTask<String,Void,Void> {
+
+        protected Void doInBackground(String... userdata) {
+            String[] uname = mydatabase.get_username();
+            String[] image_arr = mydatabase.get_imagepath(uname);
+
+            rowItems = new ArrayList<RowItem>();
+            for (int i = 0; i < uname.length; i++) {
+                if(uname[i].compareTo(userdata[0])!=0){
+                    RowItem item = new RowItem(image_arr[i], uname[i]);
+                    rowItems.add(item);
+                }
             }
+            return null;
         }
 
-        ListView mylist = (ListView) findViewById(R.id.mylist);
-        CustomListViewAdapter adapter = new CustomListViewAdapter(this,
-                R.layout.custom_list, rowItems);
-        mylist.setAdapter(adapter);
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            
+            CustomListViewAdapter adapter = new CustomListViewAdapter(Chat_activity.this,
+                    R.layout.custom_list, rowItems);
+            mylist.setAdapter(adapter);
 
-        mylist.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            mylist.setOnItemClickListener(
+                    new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        //Start ChatView
-                        String user = String.valueOf(adapterView.getItemAtPosition(i));
-                        Intent intent = new Intent(Chat_activity.this,Messaging.class);
-                        intent.putExtra("user",user);
-                        startActivity(intent);
-                        //Toast.makeText(Chat_activity.this,food,Toast.LENGTH_LONG).show();
+                            //Start ChatView
+                            String user = String.valueOf(adapterView.getItemAtPosition(i));
+                            Intent intent = new Intent(Chat_activity.this,Messaging.class);
+                            intent.putExtra("user",user);
+                            startActivity(intent);
+                            //Toast.makeText(Chat_activity.this,food,Toast.LENGTH_LONG).show();
+                        }
                     }
-                }
-        );
+            );
+        }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -77,4 +100,5 @@ public class Chat_activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

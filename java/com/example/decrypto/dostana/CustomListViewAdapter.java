@@ -6,6 +6,8 @@ package com.example.decrypto.dostana;
 
 import java.io.File;
 import java.util.List;
+
+import com.bumptech.glide.Glide;
 import com.example.decrypto.dostana.RowItem;
 import android.app.Activity;
 import android.content.Context;
@@ -61,10 +63,11 @@ public class CustomListViewAdapter extends ArrayAdapter<RowItem> {
         {
             File imgFile = new File(profile_destination);
             if(imgFile.exists()){
-                BitmapFactory.Options options = new BitmapFactory.Options();
+               /* BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inScaled = false;
-                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),options);
-                holder.imageView.setImageBitmap(myBitmap);
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),options);*/
+               // holder.imageView.setImageBitmap(myBitmap);
+                Glide.with(convertView).load(imgFile).into(holder.imageView);
             }
         }
         return convertView;
